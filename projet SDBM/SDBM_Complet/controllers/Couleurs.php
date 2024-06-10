@@ -8,10 +8,10 @@ class Couleurs extends Controller {
 
     public function modif(int $id) {
         $this->loadModel('Couleur');
-        $this->Continent->id = array(
+        $this->Couleur->id = array(
             'ID_COULEUR' => $id
         );
-        $continent = $this->Continent->getOne();
+        $couleur = $this->Couleur->getOne();
         $this->render('modif', compact('couleur'));
     }
     public function modif_sauve(int $id){
@@ -20,7 +20,7 @@ class Couleurs extends Controller {
     $id = $_REQUEST['Id'];
     $nom = $_REQUEST['Nom'];
 
-    // On instancie le modèle "Continent"
+    // On instancie le modèle "Couleur"
     $this->loadModel('Couleur');
 
     // On effectue la mise à jour
