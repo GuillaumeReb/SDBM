@@ -69,7 +69,10 @@
                 </div>";
             }
         ?>
-        <?= $content ?>
+        <main class="container">
+            <?= $content ?>
+        </main>
+        
 
         <footer>
             <h2>SDBM</h2>
