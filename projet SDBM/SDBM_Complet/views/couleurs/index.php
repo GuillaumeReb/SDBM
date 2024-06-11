@@ -1,7 +1,7 @@
 <h1 class="mt-5 mb-3">Gestion des Couleurs</h1>
-<a href=""><button type="button" class="btn btn-primary">Ajouter</button></a>
+<a href="<?= PATH ?>/couleurs/ajout/"><button type="button" class="btn btn-primary">Ajouter</button></a>
 
-<input class="form-control mb-2 mt-3" type="search" placeholder="Search" aria-label="Search">
+<input class="form-control mb-2 mt-3" type="search" placeholder="Rechercher" id="search" aria-label="Search">
 
 <table class="table table-bordered">
     <thead>
