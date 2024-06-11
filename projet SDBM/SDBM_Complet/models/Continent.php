@@ -1,10 +1,7 @@
 <?php
 /**
  * Classe Model Continent
- * 
- * BLABLABLA
- * 
- * 
+
  */
 class Continent extends Model{
 

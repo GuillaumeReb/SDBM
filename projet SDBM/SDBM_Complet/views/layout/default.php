@@ -87,7 +87,7 @@
         crossorigin="anonymous"></script>
         <script>
         <?php
-           // echo @$scriptJS;
+           echo @$scriptjs;
         ?>
         </script>
     
