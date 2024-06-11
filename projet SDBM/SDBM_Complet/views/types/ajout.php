@@ -1,4 +1,4 @@
-<h1>Ajout d'un type</h1>
+<h1>Ajout d'un type de bière</h1>
 <form action="<?= PATH ?>/types/ajout_sauve" method="POST">
         <div class="form-group">
           <label for="Nom">Nom Type:</label>
