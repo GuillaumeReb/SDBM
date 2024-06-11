@@ -16,11 +16,37 @@ class Continents extends Controller{
         // On stocke les continent dans $continents
         $continents = $this->Continent->getAll();
 
-        // $this->loadModel('Marque');
-        // $marques = $this->Marque->getAll();
+       $scriptjs = 'window.addEventListener("load", (event) =>  {
+    let recherche = document.getElementById("search")
+    recherche.addEventListener("keyup", (event) => {
+        let search_value = recherche.value.toLowerCase();
+        let tr = document.getElementsByTagName("tr");
+
+
+        if (search_value === "") {
+            for (let i = 1; i < tr.length; i++) {
+                tr[i].style.display = "";
+            }
+            return; 
+        }
+        for (let i = 1; i < tr.length; i++) {
+            let tds = tr[i].getElementsByTagName("td");
+            tr[i].style.display = "none";
+
+            for (let j = 0; j < tds.length; j++) {
+
+                let txtValue = tds[j].textContent || tds[j].innerText;
+                if (txtValue.toLowerCase().indexOf(search_value) > -1) {
+                    tr[i].style.display = "";
+                }
+
+            }
+        }
+    }, false);
+})';
 
         // On envoie les données à la vue index
-        $this->render('index', compact('continents'));
+        $this->render('index', compact('continents', 'scriptjs'));
     }
 
     /**
