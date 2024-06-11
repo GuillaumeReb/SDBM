@@ -37,7 +37,7 @@
                                 <a class="nav-link" href="<?= PATH ?>/pays">Pays</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="<?= PATH ?>/fabricant">Fabricants</a>
+                                <a class="nav-link" href="<?= PATH ?>/fabricants">Fabricants</a>
                             </li>
                             <li class="nav-item">
                                 <a class="nav-link" href="<?= PATH ?>/marque">Marques</a>
