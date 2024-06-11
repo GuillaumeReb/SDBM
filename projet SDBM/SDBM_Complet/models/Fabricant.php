@@ -28,7 +28,7 @@ class Fabricant extends Model{
         $sql = "UPDATE ".$this->table." set NOM_FABRICANT=:p_nom WHERE ID_FABRICANT=:p_id";
         $query = $this->_connexion->prepare($sql);
         $query->bindParam(':p_id', $id,  PDO::PARAM_INT );
-        $query->bindParam(':p_nom',  $nom ,  PDO::PARAM_STR );
+        $query->bindParam(':p_nom', $nom,  PDO::PARAM_STR );
         $query->execute();  
     }
 
