@@ -5,7 +5,9 @@
  */
 class Type extends Model {
     public function __construct(){
+
         $this->table = "typebiere";
+        $this->table = "type";
         $this->getConnection();
     }
     public function update(int $id, string $nom){
