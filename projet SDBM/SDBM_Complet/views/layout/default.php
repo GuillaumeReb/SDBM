@@ -31,10 +31,10 @@
                             <a class="nav-link" href="<?= PATH ?>/continents">Continents</a>
                             </li>
                             <li class="nav-item">
-                            <a class="nav-link" href="<?= PATH ?>/couleur">Couleurs</a>
+                            <a class="nav-link" href="<?= PATH ?>/couleurs">Couleurs</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="<?= PATH ?>/couleur">Pays</a>
+                                <a class="nav-link" href="<?= PATH ?>/pays">Pays</a>
                             </li>
                             <li class="nav-item">
                                 <a class="nav-link" href="<?= PATH ?>/fabricant">Fabricants</a>
