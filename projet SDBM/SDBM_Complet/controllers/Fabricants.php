@@ -55,17 +55,13 @@ class Fabricants extends Controller{
      * @param  int $id
      * @return void
      */
-    public function modif(int $id){
-        // On instancie le modèle "Fabricant"
+    
+     public function modif(int $id) {
         $this->loadModel('Fabricant');
-
-        // On stocke le continent dans $fabricants
         $this->Fabricant->id = array(
             'ID_FABRICANT' => $id
         );
         $fabricant = $this->Fabricant->getOne();
-
-        // On envoie les données à la vue modif
         $this->render('modif', compact('fabricant'));
     }
 
@@ -92,7 +88,7 @@ class Fabricants extends Controller{
         // On stocke les Fabricant dans $fabricants
         $fabricants = $this->Fabricant->getAll();
         
-        $message = "Continent bien modifié";
+        $message = "Fabricant bien modifié";
         $type_message = "success";
         // On envoie les données à la vue index
         $this->render('index', compact('fabricants', 'message', 'type_message'));
@@ -141,7 +137,7 @@ class Fabricants extends Controller{
         // On stocke les continent dans $fabricants
         $fabricants = $this->Fabricant->getAll();
         
-        $message = "Continent bien supprimé";
+        $message = "Fabricant bien supprimé";
         $type_message = "success";
         // On envoie les données à la vue index
         $this->render('index', compact('fabricants', 'message', 'type_message'));
@@ -180,7 +176,7 @@ class Fabricants extends Controller{
         // On stocke les continent dans $fabricants
         $fabricants = $this->Fabricant->getAll();
         
-        $message = "Continent bien Ajouté";
+        $message = "Fabricant bien Ajouté";
         $type_message = "success";
         // On envoie les données à la vue index
         $this->render('index', compact('fabricants', 'message', 'type_message'));

@@ -3,12 +3,12 @@
         <div class="form-group">
           <label for="Id">Code Continent :</label>
           <input type="text" class="form-control" placeholder="Saisir un Code" name="Id" id="Id"
-          value=<?= $continent['ID_CONTINENT'] ?> readonly>
+          value="<?= $continent['ID_CONTINENT'] ?>" readonly>
         </div>
         <div class="form-group">
           <label for="Nom">Nom Continent:</label>
           <input type="text" class="form-control" placeholder="Saisir un Nom" name="Nom" id="Nom"
-          value=<?= $continent['NOM_CONTINENT'] ?> readonly> 
+          value="<?= $continent['NOM_CONTINENT'] ?>" readonly> 
         </div>
         <button type="submit" class="btn btn-primary">Confirmer la suppression</button>
 </form>  
