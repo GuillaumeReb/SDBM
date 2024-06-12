@@ -40,10 +40,10 @@
                                 <a class="nav-link" href="<?= PATH ?>/fabricants">Fabricants</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="<?= PATH ?>/marque">Marques</a>
+                                <a class="nav-link" href="<?= PATH ?>/marques">Marques</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="<?= PATH ?>/ticket">Tickets</a>
+                                <a class="nav-link" href="<?= PATH ?>/tickets">Tickets</a>
                             </li>
                             <li class="nav-item">
                                 <a class="nav-link" href="<?= PATH ?>/types">Type Bière</a>
