@@ -3,7 +3,7 @@
  * Classe Model Continent
 
  */
-class Continent extends Model{
+class Marque extends Model{
 
     public function __construct()
     {
@@ -61,26 +61,25 @@ class Continent extends Model{
      * @return void
      */
     public function delete(int $id) {
-        $sql = "DELETE FROM ".$this->table." WHERE ID_CONTINENT=:p_id";
+        $sql = "DELETE FROM ".$this->table." WHERE ID_MARQUE=:p_id";
         $query = $this->_connexion->prepare($sql);
         $query->bindParam(':p_id', $id,  PDO::PARAM_INT );
         $query->execute();    
     }
 
      /**
-     * Ajoute un Continent 
      *
      * @param string $nom
-     * @param string $id_fab
+     * @param int $id_fab
      * @param int $id_pays
      * @return void
      */
-    public function insert(string $nom, string $id_fab,int $id_pays) {
+    public function insert(string $nom, int $id_fab,int $id_pays) {
 
         $nom = htmlspecialchars($nom); // Faille XSS
         
         if ($id_fab == "NULL") {
-            $sql = "INSERT INTO ".$this->table." (NOM_MARQUE, ID_PAYS) VALUES (:p_nom,  :p_id_pays)";
+            $sql = "INSERT INTO ".$this->table." (NOM_MARQUE, ID_PAYS) VALUES (:p_nom, :p_id_pays)";
             $query = $this->_connexion->prepare($sql);
             $query->bindParam(':p_nom', $nom,  PDO::PARAM_STR );
             $query->bindParam(':p_id_pays', $id_pays,  PDO::PARAM_INT );
@@ -91,6 +90,7 @@ class Continent extends Model{
             $query->bindParam(':p_id_fabricant', $id_fab,  PDO::PARAM_INT );
             $query->bindParam(':p_id_pays', $id_pays,  PDO::PARAM_INT );
         }
+        $query->execute();
     }
 
 }

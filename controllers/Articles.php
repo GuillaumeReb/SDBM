@@ -1,6 +1,6 @@
 <?php
 
-class Marques extends Controller{
+class Articles extends Controller{
     
 
     /**
@@ -12,9 +12,9 @@ class Marques extends Controller{
     public function index() {
         // On instancie le modèle "Continent"
         
-        $this->loadModel('Marque');
+        $this->loadModel('Article');
         // On stocke les continent dans $continents
-        $marques = $this->Marque->getAll_pays_fabricant_null();
+        $articles = $this->Article->getAll_marque_type_couleur_null();
 
        $scriptjs = 'window.addEventListener("load", (event) =>  {
     let recherche = document.getElementById("search")
@@ -46,7 +46,7 @@ class Marques extends Controller{
 })';
 
         // On envoie les données à la vue index
-        $this->render('index', compact('marques', 'scriptjs'));
+        $this->render('index', compact('articles', 'scriptjs'));
     }
 
     /**
@@ -57,22 +57,25 @@ class Marques extends Controller{
      */
     public function modif(int $id){
         // On instancie le modèle "Continent"
-        $this->loadModel('Marque');
+        $this->loadModel('Article');
 
         // On stocke le continent dans $continent
-        $this->Marque->id = array(
-            'ID_MARQUE' => $id
+        $this->Article->id = array(
+            'ID_ARTICLE' => $id
         );
-        $marque = $this->Marque->getOne();
+        $article = $this->Article->getOne();
 
-        $this->loadModel('Payss');
-        $Pays = $this->Payss->getAll("NOM_PAYS asc");
+        $this->loadModel('Marque');
+        $marque = $this->Marque->getAll("NOM_MARQUE asc");
 
-        $this->loadModel('Fabricant');
-        $fabricants = $this->Fabricant->getAll("NOM_FABRICANT asc");
+        $this->loadModel('Type');
+        $type = $this->Type->getAll("NOM_TYPE asc");
+
+        $this->loadModel('Couleur');
+        $couleur = $this->Couleur->getAll("NOM_COULEUR asc");
 
         // On envoie les données à la vue modif
-        $this->render('modif', compact('marque', 'Pays', 'fabricants'));
+        $this->render('modif', compact('marque', 'article', 'type','couleur'));
     }
 
     /**
@@ -114,23 +117,24 @@ class Marques extends Controller{
         // On recupère les données envoyées par le formulaire
         $id = $_REQUEST['Id'];
         $nom = $_REQUEST['Nom'];
-        $id_fab = $_REQUEST['Id_fabricant'];
-        $id_pays = $_REQUEST['Id_pays'];
+        $id_marque = $_REQUEST['Id_marque'];
+        $id_type = $_REQUEST['Id_type'];
+        $id_couleur = $_REQUEST["Id_couleur"];
 
         // On instancie le modèle "Continent"
-        $this->loadModel('Marque');
+        $this->loadModel('Article');
 
         // On effectue la mise à jour
-        $this->Marque->update($id, $nom, $id_fab, $id_pays);
+        $this->Article->update($id, $nom ,$id_type, $id_marque , $id_couleur);
 
         // On redirige vers la liste
         // On stocke les continent dans $continents
-        $marques = $this->Marque->getAll_pays_fabricant_null();
+        $articles = $this->Article->getAll_marque_type_couleur_null();
         
-        $message = "Continent bien modifié";
+        $message = "Article bien modifié";
         $type_message = "success";
         // On envoie les données à la vue index
-        $this->render('index', compact('marques', 'message', 'type_message', "scriptjs"));
+        $this->render('index', compact('articles', 'message', 'type_message', "scriptjs"));
     }
 
 
@@ -142,16 +146,16 @@ class Marques extends Controller{
      */
     public function suppr(int $id){
         // On instancie le modèle "Continent"
-        $this->loadModel('Marque');
+        $this->loadModel('Article');
 
         // On stocke le continent dans $continent
-        $this->Marque->id = array(
-            'ID_MARQUE' => $id
+        $this->Article->id = array(
+            'ID_ARTICLE' => $id
         );
-        $marque = $this->Marque->getOne();
+        $article = $this->Article->getOne();
 
         // On envoie les données à la vue modif
-        $this->render('suppr', compact('marque'));
+        $this->render('suppr', compact('article'));
     }
 
     /**
@@ -194,19 +198,19 @@ class Marques extends Controller{
         $id = $_REQUEST['Id'];
 
         // On instancie le modèle "Continent"
-        $this->loadModel('Marque');
+        $this->loadModel('Article');
 
         // On effectue la mise à jour
-        $this->Marque->delete($id);
+        $this->Article->delete($id);
 
         // On redirige vers la liste
         // On stocke les continent dans $continents
-        $marques = $this->Marque->getAll_pays_fabricant_null();
+        $articles = $this->Article->getAll_marque_type_couleur_null();
         
-        $message = "Marque bien supprimé";
+        $message = "Article bien supprimé";
         $type_message = "success";
         // On envoie les données à la vue index
-        $this->render('index', compact('marques', 'message', 'type_message','scriptjs'));
+        $this->render('index', compact('articles', 'message', 'type_message','scriptjs'));
     }
 
     /**
@@ -217,17 +221,21 @@ class Marques extends Controller{
      */
     public function ajout(){
         // On instancie le modèle "Pays"
-        $this->loadModel('Payss');
+        $this->loadModel('Marque');
         // On stocke les Pays dans $pays
-        $pays = $this->Payss->getAll("NOM_PAYS asc");
+        $marque = $this->Marque->getAll("NOM_MARQUE asc");
 
         // On instancie le modèle "Fabricant"
-        $this->loadModel('Fabricant');
+        $this->loadModel('Type');
         // On stocke les fabricants dans $fabricants
-        $fabricants = $this->Fabricant->getAll("NOM_FABRICANT asc");
+        $type = $this->Type->getAll("NOM_TYPE asc");
+
+        $this->loadModel('Couleur');
+        // On stocke les fabricants dans $fabricants
+        $couleur = $this->Couleur->getAll("NOM_COULEUR asc");
 
         // On affiche le formulaire
-        $this->render('ajout', compact('pays','fabricants'));
+        $this->render('ajout', compact('marque','type','couleur'));
     }
 
     /**
@@ -268,24 +276,25 @@ class Marques extends Controller{
         })';
         // On recupère les données envoyées par le formulaire
         $nom = $_REQUEST['Nom'];
-        $id_fab = $_REQUEST['Id_fabricant'];
-        $id_pays = $_REQUEST['Id_pays'];
+        $id_marque = $_REQUEST['Id_marque'];
+        $id_type = $_REQUEST['Id_type'];
+        $id_couleur = $_REQUEST['Id_couleur'];
 
         // On instancie le modèle "Marque"
-        $this->loadModel('Marque');
+        $this->loadModel('Article');
 
         // On effectue la mise à jour
-        $this->Marque->insert($nom, $id_fab, $id_pays);
+        $this->Article->insert($nom,$id_type ,$id_marque , $id_couleur);
 
         // On redirige vers la liste
         // On stocke les marques dans $marques
-        $marques = $this->Marque->getAll_pays_fabricant_null();
+        $articles = $this->Article->getAll_marque_type_couleur_null();
         
-        $message = "Marque bien Ajoutée";
+        $message = "Article bien Ajoutée";
         $type_message = "success";
         
         // On envoie les données à la vue index
-        $this->render('index', compact('marques', 'message', 'type_message', 'scriptjs'));
+        $this->render('index', compact('articles', 'message', 'type_message', 'scriptjs'));
     }
 }
 ?>

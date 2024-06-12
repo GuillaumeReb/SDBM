@@ -1,16 +1,59 @@
-<h1>Modification d'un Continent</h1>
+<h1>Modification d'une marque</h1>
 
-<form action="<?= PATH ?>/continents/modif_sauve/<?= $continent['ID_CONTINENT'] ?>" method="POST">
+<form action="<?= PATH ?>/marques/modif_sauve/<?= $marque['ID_MARQUE'] ?>" method="POST">
         <div class="form-group">
-          <label for="Id">Code Continent :</label>
+          <label for="Id">Code Marque :</label>
           <input type="text" class="form-control" placeholder="Saisir un Code" name="Id" id="Id"
-          value="<?= $continent['ID_CONTINENT'] ?>" readonly>
+          value="<?= $marque['ID_MARQUE'] ?>" readonly>
         </div>
         <div class="form-group">
-          <label for="Nom">Nom Continent:</label>
+          <label for="Nom">Nom Marque :</label>
           <input type="text" class="form-control" placeholder="Saisir un Nom" name="Nom" id="Nom"
-          value="<?= $continent['NOM_CONTINENT'] ?>">
+          value="<?= $marque['NOM_MARQUE'] ?>">
+        </div>
+        <div class="form-group">
+          <label for="Nom">Nom Pays :</label>
+          <select name="Id_pays" id="Id_pays" class="form-control">
+            <?php $payscombo = "";    
+              foreach ($Pays as $key) {
+                
+                $selected = "";
+                
+                if ($key["ID_PAYS"] == $marque["ID_PAYS"]) {
+                      $selected = " selected";
+                } else {
+                      $selected = "";
+                }
+                      $payscombo .= "<option value=\"" . htmlspecialchars($key['ID_PAYS']) . "\"" . $selected .">" . htmlspecialchars($key['NOM_PAYS']) . "</option>"; 
+        
+                }
+    
+                echo $payscombo;
+              ?>
+              
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="Nom">Nom Fabricant :</label>
+          <select name="Id_fabricant" id="Id_fabricant" class="form-control">
+          <?php $fabcombo = "";    
+              foreach ($fabricants as $key) {
+                
+                $selected = "";
+                
+                if ($key["ID_FABRICANT"] == $marque["ID_FABRICANT"]) {
+                      $selected = " selected";
+                } else {
+                      $selected = "";
+                }
+                      $fabcombo .= "<option value=\"" . htmlspecialchars($key['ID_FABRICANT']) . "\"" . $selected .">" . htmlspecialchars($key['NOM_FABRICANT']) . "</option>"; 
+        
+                }
+    
+                echo $fabcombo;
+              ?>
+          </select>
         </div>
         <button type="submit" class="btn btn-primary">Enregistrer</button>
 </form>  
-<a href="<?= PATH ?>/continents"><button  class="btn btn-warning">Retour à la liste</button></a>
+<a href="<?= PATH ?>/marques"><button  class="btn btn-warning">Retour à la liste</button></a>
