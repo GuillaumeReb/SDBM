@@ -12,4 +12,4 @@
         </div>
         <button type="submit" class="btn btn-primary">Confirmer la suppression</button>
 </form>  
-<a href="<?= PATH ?>/continents"><button  class="btn btn-warning">Annuler et retourner à la liste</button></a>
+<a href="<?= PATH ?>/couleurs"><button  class="btn btn-warning">Annuler et retourner à la liste</button></a>
