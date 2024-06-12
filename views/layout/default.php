@@ -49,7 +49,7 @@
                                 <a class="nav-link" href="<?= PATH ?>/types">Type Bière</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="<?= PATH ?>/vendre">Vente</a>
+                                <a class="nav-link" href="<?= PATH ?>/vendres">Vente</a>
                             </li>
                         </ul>
                     </div>
