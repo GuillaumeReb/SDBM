@@ -1,5 +1,5 @@
 <h1>Modification d'un pays</h1>
-<form action="<?= PATH ?>/payss/modif_sauve/<?php echo $pays["ID_PAYS"]; ?>" method="POST">
+<form action="<?= PATH ?>/pays/modif_sauve/<?php echo $pays["ID_PAYS"]; ?>" method="POST">
 <div class="mb-3">
     <label for="Id" class="form-label">Code Pays</label>
     <input type="number" class="form-control" id="Id" name="Id" value="<?php echo $pays['ID_PAYS']; ?>">
@@ -28,4 +28,4 @@
 
   <input type="submit" class="btn btn-primary">
 </form>
-<a href="<?= PATH ?>/payss"><button  class="btn btn-warning">Retour à la liste</button></a>
+<a href="<?= PATH ?>/pays"><button  class="btn btn-warning">Retour à la liste</button></a>

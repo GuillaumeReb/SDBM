@@ -46,12 +46,12 @@ class Pays extends Controller {
         $continents = $this->Continent->getAll("NOM_CONTINENT asc");
 
         // On instancie le modèle "Pays"
-        $this->loadModel('Pays');
-        $this->Pays->id = array(
+        $this->loadModel('Payss');
+        $this->Payss->id = array(
             'ID_PAYS' => $id
         );
         // Le pays a modifier
-        $pays = $this->Pays->getOne();
+        $pays = $this->Payss->getOne();
 
         // On envoie les données à la vue modif
         $this->render('modif', compact('pays', 'continents'));

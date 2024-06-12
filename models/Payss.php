@@ -9,7 +9,7 @@ class Payss extends Model {
     }
     public function update(int $id, string $nom){
         $nom = htmlspecialchars($nom); // Faille XSS
-        $sql = "UPDATE ".$this->table." set NOM_PAYS=:p_nom WHERE ID_PAYS=:p_id";
+        $sql = "UPDATE ".$this->table." set NOM_PAYS=:p_nom, ID_CONTINENT=:p_cont WHERE ID_PAYS=:p_id";
         $query = $this->_connexion->prepare($sql);
         $query->bindParam(":p_id", $id, PDO::PARAM_INT);
         $query->bindParam(":p_nom", $nom, PDO::PARAM_STR);
