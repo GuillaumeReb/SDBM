@@ -1,4 +1,4 @@
-<h1 class="mt-5 mb-3">Gestion des Types</h1>
+<h1 class="mt-5 mb-3">Gestion des Types de bière</h1>
 <a href="<?= PATH ?>/types/ajout/"><button type="button" class="btn btn-primary">Ajouter</button></a>
 
 <input class="form-control mb-2 mt-3" type="search" placeholder="Rechercher" id="search" aria-label="Search">
