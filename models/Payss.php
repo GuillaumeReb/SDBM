@@ -7,7 +7,7 @@ class Payss extends Model {
         $this->table = "pays";
         $this->getConnection();
     }
-    public function update(int $id, string $nom){
+    public function update(int $id, string $nom, int $id_cont){
         $nom = htmlspecialchars($nom); // Faille XSS
         $sql = "UPDATE ".$this->table." set NOM_PAYS=:p_nom, ID_CONTINENT=:p_cont WHERE ID_PAYS=:p_id";
         $query = $this->_connexion->prepare($sql);

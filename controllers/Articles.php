@@ -119,13 +119,13 @@ class Articles extends Controller{
         $nom = $_REQUEST['Nom'];
         $id_marque = $_REQUEST['Id_marque'];
         $id_type = $_REQUEST['Id_type'];
-        $id_couleur = $_REQUEST["Id_couleur"];
+        $id_couleur = $_REQUEST['Id_couleur'];
 
         // On instancie le modèle "Continent"
         $this->loadModel('Article');
 
         // On effectue la mise à jour
-        $this->Article->update($id, $nom ,$id_type, $id_marque , $id_couleur);
+        $this->Article->update($id, $nom ,$id_type, $id_marque, $id_couleur);
 
         // On redirige vers la liste
         // On stocke les continent dans $continents

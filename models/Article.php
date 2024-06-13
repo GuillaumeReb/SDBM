@@ -18,7 +18,7 @@ class Article extends Model{
         FROM " .$this->table. " LEFT JOIN typebiere ";
         $sql .= " ON article.ID_TYPE=typebiere.ID_TYPE";
         $sql .= " INNER JOIN MARQUE ON MARQUE.ID_MARQUE=article.ID_MARQUE";
-        $sql .= "  LEFT JOIN couleur ON article.ID_COULEUR = couleur.ID_COULEUR";
+        $sql .= " LEFT JOIN couleur ON article.ID_COULEUR = couleur.ID_COULEUR";
         $sql .= " ORDER BY ID_ARTICLE";
         $query = $this->_connexion->prepare($sql);
         $query->execute();
@@ -59,7 +59,7 @@ class Article extends Model{
             $query = $this->_connexion->prepare($sql);
 
             $query->bindParam(':p_id', $id, PDO::PARAM_INT);
-            $query->bindParam(':p_nom',  $nom, PDO::PARAM_STR);
+            $query->bindParam(':p_nom', $nom, PDO::PARAM_STR);
             $query->bindParam(':p_type', $id_type, PDO::PARAM_INT);
             $query->bindParam(':p_marque', $id_marque, PDO::PARAM_INT);
             $query->bindParam(':p_couleur', $id_couleur, PDO::PARAM_INT);

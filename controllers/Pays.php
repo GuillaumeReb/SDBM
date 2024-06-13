@@ -73,7 +73,7 @@ class Pays extends Controller {
     $nom = $_REQUEST['Nom'];
     $id_continent = $_REQUEST['Id_continent'];
 
-    // On instancie le modèle "Pays"
+    // On instancie le modèle "Payss"
     $this->loadModel('Payss');
 
     // On effectue la mise à jour
