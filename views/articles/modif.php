@@ -1,4 +1,5 @@
-<h1>Modification d'un Continent</h1>
+<main class="container vh-100">
+<h1 class="mt-5 mb-5">Modification d'un Article</h1>
 
 <form action="<?= PATH ?>/articles/modif_sauve/<?= $article['ID_ARTICLE'] ?>" method="POST">
         <div class="form-group">
@@ -75,6 +76,7 @@
               ?>
           </select>
         </div>
-        <button type="submit" class="btn btn-primary">Enregistrer</button>
+        <button type="submit" class="btn btn-primary mb-2 mt-4">Enregistrer</button>
 </form>  
 <a href="<?= PATH ?>/articles"><button  class="btn btn-warning">Retour à la liste</button></a>
+</main>

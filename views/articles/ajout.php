@@ -1,4 +1,5 @@
-<h1>Ajout d'un article</h1>
+<main class="container vh-100">
+<h1 class="mt-5 mb-5">Ajout d'un article</h1>
 <form action="<?= PATH ?>/articles/ajout_sauve" method="POST">
         <div class="form-group">
           <label for="Nom">Nom Article :</label>
@@ -36,6 +37,7 @@
               echo $couleurcombo;?>
           </select>
         </div>
-        <button type="submit" class="btn btn-primary">Ajouter</button>
+        <button type="submit" class="btn btn-primary mt-4 mb-2">Ajouter</button>
 </form>
-<a href="<?= PATH ?>/types"><button  class="btn btn-warning">Retour à la liste</button></a>
+<a href="<?= PATH ?>/articles"><button  class="btn btn-warning">Retour à la liste</button></a>
+</main>

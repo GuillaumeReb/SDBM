@@ -8,8 +8,10 @@ class Erreur extends Controller{
     }
 
     public function index(){
-        $message = $this->exception->getMessage();
-        $type_message = "danger";
+        $message = "Erreur, veuillez retourner à la page d'accueil";
+        $type_message = "error";
+        
+        
         $this->render('index', compact('message', 'type_message'));
     }
 
