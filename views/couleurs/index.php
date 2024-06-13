@@ -1,5 +1,6 @@
-<h1 class="mt-5 mb-3">Gestion des Couleurs</h1>
-<a href="<?= PATH ?>/couleurs/ajout/"><button type="button" class="btn btn-primary">Ajouter</button></a>
+<main class="container vh-100">
+<h1 class="mt-5 mb-5">Gestion des Couleurs</h1>
+<a href="<?= PATH ?>/couleurs/ajout/"><button type="button" class="btn btn-ajout">Ajouter</button></a>
 
 <input class="form-control mb-2 mt-3" type="search" placeholder="Rechercher" id="search" aria-label="Search">
 
@@ -18,12 +19,13 @@
                 <td><?= $couleur['NOM_COULEUR'] ?></td>
                 <td>
                     <a href="<?= PATH ?>/couleurs/modif/<?= $couleur['ID_COULEUR'] ?>"><button
-                        class="btn btn-success bi bi-pencil">Modifier</button></a>
+                        class="btn btn-primary mb-2">Modifier</button></a>
                     <a href="<?= PATH ?>/couleurs/suppr/<?= $couleur['ID_COULEUR'] ?>"><button
-                        class="btn btn-danger bi bi-trash3">Supprimer</button></a>
+                        class="btn btn-danger mb-2">Supprimer</button></a>
                 </td>
 </tr>
 
 <?php endforeach ?>
         </tbody>
     </table>
+</main>

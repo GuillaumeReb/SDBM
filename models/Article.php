@@ -34,10 +34,10 @@ class Article extends Model{
   * @param int $id_couleur
      * @return void
      */
-    public function update(int $id, string $nom, int $id_type, int $id_marque, int $id_couleur) {
+    public function update(int $id, string $nom, ?int $id_type, int $id_marque, ?int $id_couleur) {
 
         $nom = htmlspecialchars($nom); // Faille XSS
-        if ($id_type == "NULL") {
+        if (is_null($id_type)) {
         $sql = "UPDATE ".$this->table." set NOM_ARTICLE=:p_nom, ID_TYPE=NULL, ID_MARQUE=:p_marque, ID_COULEUR=:p_couleur WHERE ID_ARTICLE=:p_id";
         $query = $this->_connexion->prepare($sql);
         $query->bindParam(':p_id', $id,  PDO::PARAM_INT );
@@ -45,8 +45,8 @@ class Article extends Model{
         $query->bindParam(':p_marque', $id_marque, PDO::PARAM_INT);
         $query->bindParam(':p_couleur', $id_couleur, PDO::PARAM_INT);
         $query->execute();  
-        } else if ($id_couleur == "NULL"){
-            $sql = "UPDATE ".$this->table." set NOM_ARTICLE=:p_nom, ID_TYPE=p_type, ID_MARQUE=:p_marque, ID_COULEUR=:NULL WHERE ID_ARTICLE=:p_id";
+        } else if (is_null($id_couleur)){
+            $sql = "UPDATE ".$this->table." set NOM_ARTICLE=:p_nom, ID_TYPE=:p_type, ID_MARQUE=:p_marque, ID_COULEUR=:NULL WHERE ID_ARTICLE=:p_id";
             $query = $this->_connexion->prepare($sql);
 
             $query->bindParam(':p_id', $id, PDO::PARAM_INT);
@@ -54,8 +54,8 @@ class Article extends Model{
             $query->bindParam(':p_type', $id_type, PDO::PARAM_INT);
             $query->bindParam(':p_marque', $id_marque, PDO::PARAM_INT);
             $query->execute();
-        } else {
-            $sql = "UPDATE ".$this->table." set NOM_ARTICLE=:p_nom, ID_TYPE=p_type, ID_MARQUE=:p_marque, ID_COULEUR=:p_couleur WHERE ID_ARTICLE=:p_id";
+        } else if (!is_null($id_couleur) && !is_null($id_type)) {
+            $sql = "UPDATE ".$this->table." set NOM_ARTICLE=:p_nom, ID_TYPE=:p_type, ID_MARQUE=:p_marque, ID_COULEUR=:p_couleur WHERE ID_ARTICLE=:p_id";
             $query = $this->_connexion->prepare($sql);
 
             $query->bindParam(':p_id', $id, PDO::PARAM_INT);
