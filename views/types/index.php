@@ -6,7 +6,7 @@
 
 <input class="form-control mb-2 mt-3" type="search" placeholder="Rechercher" id="search" aria-label="Search">
 
-<table class="table table-bordered">
+<table class="table table-bordered ">
     <thead>
         <tr>
             <th>Code</th>

@@ -1,9 +1,10 @@
-<h1 class="mt-5 mb-3">Gestion des Tickets</h1>
-<a href="<?= PATH ?>/tickets/ajout/"><button type="button" class="btn btn-primary">Ajouter</button></a>
+<main class="container mb-5">
+<h1 class="mt-5 mb-5">Gestion des Tickets</h1>
+<a href="<?= PATH ?>/tickets/ajout/"><button type="button" class="btn btn-ajout">Ajouter</button></a>
 
 <input class="form-control mb-2 mt-3" type="search" placeholder="Rechercher" id="search" aria-label="Search">
 
-<table class="table table-bordered">
+<table class="table table-bordered table-ticket">
     <thead>
         <tr>
             <th>Année</th>
@@ -20,14 +21,15 @@
                 <td><?= $ticket['DATE_VENTE'] ?></td>
                 <td>
                     <a href="<?= PATH ?>/tickets/modif/<?= $ticket['ANNEE'] ?>"><button
-                        class="btn btn-success bi bi-pencil">Modifier</button></a>
+                        class="btn btn-success mb-2">Modifier</button></a>
                     <a href="<?= PATH ?>/tickets/suppr/<?= $ticket['ANNEE'] ?>"><button
-                        class="btn btn-danger bi bi-trash3">Supprimer</button></a>
+                        class="btn btn-danger mb-2">Supprimer</button></a>
                     <a href="<?= PATH ?>/vendres/suppr/<?= $ticket['ANNEE'] ?>"><button
-                        class="btn btn-warning bi bi-trash3">Détail</button></a>
+                        class="btn btn-warning mb-2">Détail</button></a>
                 </td>
 </tr>
 
 <?php endforeach ?>
         </tbody>
     </table>
+</main>
