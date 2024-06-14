@@ -63,7 +63,7 @@ class Couleurs extends Controller {
     // On stocke les couleur dans $couleurs
     $couleurs = $this->Couleur->getAll();
     
-    $message = "Couleur bien modifié";
+    $message = "Couleur bien modifiée";
     $type_message = "success";
     // On envoie les données à la vue index
     $this->render('index', compact('couleurs', 'message', 'type_message'));

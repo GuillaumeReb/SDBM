@@ -20,7 +20,7 @@ class Ticket extends Model {
 
 
     /**
-     * Supprime une Couleur à partir de son ID
+     * Supprime un Ticket à partir de son ID
      *
      * @param int $id
      * @return void

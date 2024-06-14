@@ -1,6 +1,6 @@
 <?php
 /**
- * Classe Model fabricant
+ * Classe Model Fabricant
 
  */
 class Fabricant extends Model{

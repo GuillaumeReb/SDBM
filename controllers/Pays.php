@@ -101,13 +101,13 @@ class Pays extends Controller {
          // On instancie le modèle "Continent" Pour pouvoir générer
         // Le COMBO dans le formulaire
         $this->loadModel('Continent');
-        // On stocke les continents dans $continents
+        // On stocke les continent dans $continents
         $continents = $this->Continent->getAll("NOM_CONTINENT asc");
 
-        // On instancie le modèle "Pays"
+        // On instancie le modèle "Payss"
         $this->loadModel('Payss');
 
-        // On stocke la couleur dans $pays
+        // On stocke le pays dans $pays
         $this->Payss->id = array(
             'ID_PAYS' => $id
         );
@@ -129,17 +129,17 @@ class Pays extends Controller {
         // On recupère les données envoyées par le formulaire
         $id = $_REQUEST['Id'];
 
-        // On instancie le modèle "Pays"
+        // On instancie le modèle "Payss"
         $this->loadModel('Payss');
 
         // On effectue la mise à jour
         $this->Payss->delete($id);
 
         // On redirige vers la liste
-        // On stocke les couleur dans $couleurs
+        // On stocke les pays dans $payss
         $payss = $this->Payss->getAll_continent();
         
-        $message = "Pays bien supprimée";
+        $message = "Pays bien supprimé";
         $type_message = "success";
         // On envoie les données à la vue index
         $this->render('index', compact('payss', 'message', 'type_message'));
@@ -159,8 +159,6 @@ class Pays extends Controller {
         $this->loadModel('Continent');
         // // On stocke les continents dans $continents
         $continents = $this->Continent->getAll("NOM_CONTINENT asc");
-
-
             
         // //FIN de Création du COMBO continent
         
@@ -188,7 +186,7 @@ class Pays extends Controller {
         $this->Payss->insert($nom, $id_continent);
 
         // On redirige vers la liste
-        // On stocke les couleur dans $couleurs
+        // On stocke les pays dans $payss
         $payss = $this->Payss->getAll_continent();
         
         $message = "Pays bien Ajouté";
@@ -196,8 +194,6 @@ class Pays extends Controller {
         // On envoie les données à la vue index
         $this->render('index', compact('payss', 'message', 'type_message'));
     }
-
-
 
 
 }

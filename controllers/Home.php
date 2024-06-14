@@ -6,4 +6,6 @@ class Home extends Controller{
         $this->render('index');
     }
 
+    
+
 }

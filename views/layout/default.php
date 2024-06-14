@@ -51,10 +51,25 @@
                         if (!isset($type_message)) {
                             $type_message = "info";
                         }
-                        echo "<div class='alert alert-$type_message alert-dismissible'>
-                        <button type='button' class='btn-close' data-bs-dismiss='alert'></button>
-                        $message
-                    </div>";
+                    //     echo "<div class='alert alert-$type_message alert-dismissible'>
+                    //     <button type='button' class='btn-close' data-bs-dismiss='alert'></button>
+                    //     $message
+                    // </div>";
+                    // Générer un identifiant unique pour l'alerte
+    $alert_id = "alert-" . uniqid();
+    echo "<div id='$alert_id' class='alert alert-$type_message alert-dismissible'>
+            <button type='button' class='btn-close' data-bs-dismiss='alert'></button>
+            $message
+          </div>";
+    echo "<script>
+            // JavaScript pour masquer l'alerte après 15 secondes
+            setTimeout(function() {
+                var alertElement = document.getElementById('$alert_id');
+                if (alertElement) {
+                    alertElement.style.display = 'none';
+                }
+            }, 5000); // 5 secondes = 15000 millisecondes
+          </script>";
                     }
           
         ?>

@@ -13,7 +13,7 @@ class Fabricants extends Controller{
         // On instancie le modèle "Fabricant"
         
         $this->loadModel('Fabricant');
-        // On stocke les continent dans $fabricants
+        // On stocke les fabricant dans $fabricants
         $fabricants = $this->Fabricant->getAll();
 
        $scriptjs = 'window.addEventListener("load", (event) =>  {
@@ -105,7 +105,7 @@ class Fabricants extends Controller{
         // On instancie le modèle "Fabricant"
         $this->loadModel('Fabricant');
 
-        // On stocke le continent dans $fabricants
+        // On stocke le fabricant dans $fabricants
         $this->Fabricant->id = array(
             'ID_FABRICANT' => $id
         );
@@ -134,7 +134,7 @@ class Fabricants extends Controller{
         $this->Fabricant->delete($id);
 
         // On redirige vers la liste
-        // On stocke les continent dans $fabricants
+        // On stocke les fabricant dans $fabricants
         $fabricants = $this->Fabricant->getAll();
         
         $message = "Fabricant bien supprimé";

@@ -1,6 +1,6 @@
 <?php
 /**
- * Classe Model Continent
+ * Classe Model Article
 
  */
 class Article extends Model{
@@ -25,7 +25,7 @@ class Article extends Model{
         return $query->fetchAll();    
     }
     /**
-     * Met à jour le nom d'un Continent à partir de son ID
+     * Met à jour le nom d'un Article à partir de son ID
      *
      * @param int $id
      * @param string $slug
@@ -68,7 +68,7 @@ class Article extends Model{
     }
 
     /**
-     * Supprime un Continent à partir de son ID
+     * Supprime un Article à partir de son ID
      *
      * @param int $id
      * @return void

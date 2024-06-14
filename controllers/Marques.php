@@ -4,16 +4,16 @@ class Marques extends Controller{
     
 
     /**
-     * Cette méthode affiche la liste des Continents
+     * Cette méthode affiche la liste des Marques
      *
      *
      * @return void
      */
     public function index() {
-        // On instancie le modèle "Continent"
+        // On instancie le modèle "Marque"
         
         $this->loadModel('Marque');
-        // On stocke les continent dans $continents
+        // On stocke les marque dans $marques
         $marques = $this->Marque->getAll_pays_fabricant_null();
 
        $scriptjs = 'window.addEventListener("load", (event) =>  {
@@ -50,16 +50,16 @@ class Marques extends Controller{
     }
 
     /**
-     * Méthode permettant d'afficher un continent à partir de son ID
+     * Méthode permettant d'afficher une marque à partir de son ID
      *
      * @param  int $id
      * @return void
      */
     public function modif(int $id){
-        // On instancie le modèle "Continent"
+        // On instancie le modèle "Marque"
         $this->loadModel('Marque');
 
-        // On stocke le continent dans $continent
+        // On stocke le marque dans $marque
         $this->Marque->id = array(
             'ID_MARQUE' => $id
         );
@@ -77,7 +77,7 @@ class Marques extends Controller{
 
     /**
      * Méthode permettant de traiter l'enregistrement de la MODIFICATION
-     * d'un Continent
+     * d'une Marque
      *
      * @param  int $id
      * @return void
@@ -117,17 +117,17 @@ class Marques extends Controller{
         $id_fab = $_REQUEST['Id_fabricant'];
         $id_pays = $_REQUEST['Id_pays'];
 
-        // On instancie le modèle "Continent"
+        // On instancie le modèle "Marque"
         $this->loadModel('Marque');
 
         // On effectue la mise à jour
         $this->Marque->update($id, $nom, $id_fab, $id_pays);
 
         // On redirige vers la liste
-        // On stocke les continent dans $continents
+        // On stocke les marque dans $marques
         $marques = $this->Marque->getAll_pays_fabricant_null();
         
-        $message = "Continent bien modifié";
+        $message = "Marque bien modifiée";
         $type_message = "success";
         // On envoie les données à la vue index
         $this->render('index', compact('marques', 'message', 'type_message', "scriptjs"));
@@ -193,24 +193,24 @@ class Marques extends Controller{
         // On recupère les données envoyées par le formulaire
         $id = $_REQUEST['Id'];
 
-        // On instancie le modèle "Continent"
+        // On instancie le modèle "Marque"
         $this->loadModel('Marque');
 
         // On effectue la mise à jour
         $this->Marque->delete($id);
 
         // On redirige vers la liste
-        // On stocke les continent dans $continents
+        // On stocke les marque dans $marques
         $marques = $this->Marque->getAll_pays_fabricant_null();
         
-        $message = "Marque bien supprimé";
+        $message = "Marque bien supprimée";
         $type_message = "success";
         // On envoie les données à la vue index
         $this->render('index', compact('marques', 'message', 'type_message','scriptjs'));
     }
 
     /**
-     * Méthode permettant d'afficher le formulaire d'ajout d'un nouveau Continent
+     * Méthode permettant d'afficher le formulaire d'ajout d'une nouvelle marque
      *
      * @param  void
      * @return void
@@ -231,8 +231,8 @@ class Marques extends Controller{
     }
 
     /**
-     * Méthode permettant d'enregistrer la saisie d'un nouveau Continent
-     * d'un Continent
+     * Méthode permettant d'enregistrer la saisie d'une nouvelle marque
+     * 
      *
      * @param  void
      * @return void
@@ -278,7 +278,7 @@ class Marques extends Controller{
         $this->Marque->insert($nom, $id_fab, $id_pays);
 
         // On redirige vers la liste
-        // On stocke les marques dans $marques
+        // On stocke les marque dans $marques
         $marques = $this->Marque->getAll_pays_fabricant_null();
         
         $message = "Marque bien Ajoutée";

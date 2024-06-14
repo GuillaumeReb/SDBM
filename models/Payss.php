@@ -1,6 +1,6 @@
 <?php
 /**
- * Classe Model Pays
+ * Classe Model Payss
  */
 class Payss extends Model {
     public function __construct(){
@@ -17,7 +17,7 @@ class Payss extends Model {
         $query->execute();
     }
 
-    //Permet de récupérer tous les continents
+    //Permet de récupérer tous les pays
     public function getAll_continent(){
         $sql = "select * from ". $this->table." inner join continent 
         on pays.ID_CONTINENT = continent.ID_CONTINENT

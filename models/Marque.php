@@ -1,6 +1,6 @@
 <?php
 /**
- * Classe Model Continent
+ * Classe Model Marque
 
  */
 class Marque extends Model{
@@ -24,7 +24,7 @@ class Marque extends Model{
         return $query->fetchAll();    
     }
     /**
-     * Met à jour le nom d'un Continent à partir de son ID
+     * Met à jour le nom d'une Marque à partir de son ID
      *
      * @param int $id
      * @param string $slug
@@ -55,7 +55,7 @@ class Marque extends Model{
     }
 
     /**
-     * Supprime un Continent à partir de son ID
+     * Supprime une Marque à partir de son ID
      *
      * @param int $id
      * @return void
