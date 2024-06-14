@@ -184,3 +184,19 @@ table>tbody> tr> td{
         display: none;
     }
 }
+
+@media only screen and (max-width: 768px) {
+    /* Cacher les cellules de données (th) */
+    
+    .table-ticket th:nth-child(3)
+     {
+        display: none;
+    }
+
+    /* Cacher les cellules de données (td) correspondantes dans chaque ligne */
+    
+    .table-ticket td:nth-child(3)
+     {
+        display: none;
+    }
+}
