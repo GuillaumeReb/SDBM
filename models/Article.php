@@ -17,7 +17,7 @@ class Article extends Model{
         $sql = "SELECT ID_ARTICLE, NOM_ARTICLE, NOM_MARQUE, NOM_TYPE, NOM_COULEUR
         FROM " .$this->table. " LEFT JOIN typebiere ";
         $sql .= " ON article.ID_TYPE=typebiere.ID_TYPE";
-        $sql .= " INNER JOIN MARQUE ON MARQUE.ID_MARQUE=article.ID_MARQUE";
+        $sql .= " INNER JOIN marque ON marque.ID_MARQUE=article.ID_MARQUE";
         $sql .= " LEFT JOIN couleur ON article.ID_COULEUR = couleur.ID_COULEUR";
         $sql .= " ORDER BY ID_ARTICLE";
         $query = $this->_connexion->prepare($sql);
