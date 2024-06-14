@@ -1,4 +1,4 @@
-<main class="vh-100">
+<main class="accueilblock">
     <h1 class="mb-5 mt-5 text-center">Références</h1>
 
     <div class="container">
