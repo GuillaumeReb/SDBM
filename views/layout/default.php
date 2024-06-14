@@ -46,7 +46,16 @@
         </header>
 
         <?php
-            // Y a t il un message d'alert à afficher
+                      // Y a t il un message d'alert à afficher
+                      if (isset($message)) {
+                        if (!isset($type_message)) {
+                            $type_message = "info";
+                        }
+                        echo "<div class='alert alert-$type_message alert-dismissible'>
+                        <button type='button' class='btn-close' data-bs-dismiss='alert'></button>
+                        $message
+                    </div>";
+                    }
           
         ?>
         

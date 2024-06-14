@@ -8,7 +8,7 @@ class Erreur extends Controller{
     }
 
     public function index(){
-        $message = "Erreur, veuillez retourner à la page d'accueil";
+        $message =  $this->exception->getMessage();
         $type_message = "error";
         
         
